@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<!--
+	- Default SQL error codes for well-known databases.
+	- Can be overridden by definitions in a "sql-error-codes.xml" file
+	- in the root of the class path.
+	-
+	- If the Database Product Name contains characters that are invalid
+	- to use in the id attribute (like a space) then we need to add a property
+	- named "databaseProductName"/"databaseProductNames" that holds this value.
+	- If this property is present, then it will be used instead of the id for
+	- looking up the error codes based on the current database.
+	-->
+
+<!--
+    此文件主要做dameng数据库错误码与spring异常类的映射关系
+    如果没有此文件 修改配置时唯一索冲突并不会抛出  DuplicateKeyException 的异常
+    @author Xiao Yong
+-->
+<beans>
+    <!-- 支持达梦数据库错误码-->
+    <bean id="DM" class="org.springframework.jdbc.support.SQLErrorCodes">
+        <property name="databaseProductNames">
+            <list>
+                <!-- 数据源名称存在空格不能像Oracle一样直接作为beanId -->
+                <value>DM DBMS</value>
+            </list>
+        </property>
+        <property name="duplicateKeyCodes">
+            <value>-6602,-6625</value>
+        </property>
+    </bean>
+
+</beans>
+

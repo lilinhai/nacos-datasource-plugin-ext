@@ -1,0 +1,58 @@
+# Created by .ignore support plugin (hsz.mobi)
+### java template
+# maven ignore
+target/
+
+
+# eclipse ignore
+.settings/
+*/.settings
+/.settings/*
+*/.externalToolBuilders
+/.externalToolBuilders/*
+
+.project
+.classpath
+*.project
+*.settings
+*.classpath
+*.factorypath
+*target
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+.metadata/*
+
+
+# temp ignore
+*.log
+*logs
+logbaks
+*.cache
+*.diff
+*.patch
+*.tmp
+*tmp
+
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+
+*.class
+*.pid
+*/target
+*/target/*
+*/bin
+bin
+*/bin/*
+*.bin
+*.prefs
+/*.project
+
+.gradle
+build/
