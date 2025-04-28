@@ -27,7 +27,6 @@ public abstract class BaseConfigInfoGrayMapper extends AbstractDataSourceMapper 
     /**
      * <pre>构造方法</pre>
      * 
-     * @author sinhy
      * @since 2025-04-27 10:03
      * @param databaseDialect
      */
