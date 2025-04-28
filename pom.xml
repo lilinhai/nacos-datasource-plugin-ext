@@ -7,6 +7,7 @@
     <groupId>com.sinhy</groupId>
     <artifactId>nacos-datasource-plugin-ext</artifactId>
     <packaging>pom</packaging>
+    <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
 
     <modules>
         <module>nacos-datasource-plugin-ext-base</module>
@@ -34,11 +35,6 @@
         </license>
     </licenses>
     
-    <organization>
-        <name>nacos-group</name>
-        <url>https://github.com/nacos-group</url>
-    </organization>
-
     <properties>
         <alibaba-nacos.version>3.0.0</alibaba-nacos.version>
         <revision>${alibaba-nacos.version}</revision>

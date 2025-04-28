@@ -6,10 +6,7 @@
   <artifactId>nacos-datasource-plugin-ext</artifactId>
   <version>3.0.0</version>
   <packaging>pom</packaging>
-  <organization>
-    <name>nacos-group</name>
-    <url>https://github.com/nacos-group</url>
-  </organization>
+  <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -19,8 +16,8 @@
   </licenses>
   <developers>
     <developer>
-      <name>li-xiao-shuang</name>
-      <email>644968328@qq.com</email>
+      <name>li-lin-hai</name>
+      <email>lilinhai@sinhy.com</email>
     </developer>
   </developers>
   <modules>

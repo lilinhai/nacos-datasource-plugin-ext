@@ -10,7 +10,8 @@
 当前插件项目地址：
 https://github.com/lilinhai/nacos-datasource-plugin-ext
 
-当前项目基于Nacos3.0.0版本的扩展插件口进行开发。
+当前项目基于Nacos3.0.0版本的扩展插件口进行开发，同时也是基于以下项目的一个分支进行的而开，很感谢阿里nacos团队的贡献，你们一如既往的迭代nacos版本，给你们说声辛苦了，但是却忘记了nacos的其他数据源适配，比如postgresql：
+https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext
 
 ### 2.2、插件工程结构说明
 

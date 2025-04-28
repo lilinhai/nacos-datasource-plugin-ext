@@ -10,6 +10,7 @@ import com.sinhy.nacos.plugin.datasource.dialect.PostgresqlDatabaseDialect;
 import com.sinhy.nacos.plugin.datasource.impl.base.BaseConfigMigrateMapper;
 
 /**
+ * pg实现配置迁移
  * @author lilinhai
  * @since 2025-04-27 10:47
  * @version V1.0
@@ -19,10 +20,7 @@ public class ConfigMigrateMapperByPostgresql extends BaseConfigMigrateMapper
     
     /**
      * <pre>构造方法</pre>
-     * 
-     * @author sinhy
      * @since 2025-04-27 10:11
-     * @param databaseDialect
      */
     public ConfigMigrateMapperByPostgresql()
     {
