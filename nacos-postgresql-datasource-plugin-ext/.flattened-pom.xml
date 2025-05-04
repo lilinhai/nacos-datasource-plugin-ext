@@ -8,7 +8,7 @@
     <version>3.0.0</version>
   </parent>
   <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
-  <version>3.0.0</version>
+  <version>3.0.0-01</version>
   <description>Nacos PG database storage plugin</description>
   <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
   <licenses>

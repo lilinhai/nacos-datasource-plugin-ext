@@ -39,8 +39,8 @@ public abstract class BaseHistoryConfigInfoMapper extends AbstractDataSourceMapp
     @Override
     public MapperResult removeConfigHistory(MapperContext context)
     {
-        String sql = "DELETE FROM his_config_info WHERE gmt_modified < ? LIMIT ?";
-        return new MapperResult(sql, CollectionUtils.list(context.getWhereParameter(FieldConstant.START_TIME), context.getWhereParameter(FieldConstant.LIMIT_SIZE)));
+        String sql = "DELETE FROM his_config_info WHERE gmt_modified < ?";
+        return new MapperResult(sql, CollectionUtils.list(context.getWhereParameter(FieldConstant.START_TIME)));
     }
     
     @Override
