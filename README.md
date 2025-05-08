@@ -33,7 +33,7 @@ nacos-postgresql-datasource-plugin-ext工程可打包适配Postgresql的数据�
 <dependency>
     <groupId>com.sinhy</groupId>
     <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.0-01</version>
 </dependency>
 ```
 
