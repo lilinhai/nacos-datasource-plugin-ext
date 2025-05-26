@@ -5,10 +5,10 @@
   <parent>
     <groupId>com.sinhy</groupId>
     <artifactId>nacos-datasource-plugin-ext</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
   </parent>
   <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
-  <version>3.0.0-01</version>
+  <version>3.0.1</version>
   <description>Nacos PG database storage plugin</description>
   <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
   <licenses>
@@ -41,7 +41,7 @@
     <dependency>
       <groupId>com.sinhy</groupId>
       <artifactId>nacos-datasource-plugin-ext-base</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -53,13 +53,13 @@
     <dependency>
       <groupId>com.alibaba.nacos</groupId>
       <artifactId>nacos-datasource-plugin</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.alibaba.nacos</groupId>
       <artifactId>nacos-common</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
