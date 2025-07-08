@@ -26,7 +26,7 @@ target/
 *.iws
 .metadata/*
 
-
+.flattened-pom.xml
 # temp ignore
 *.log
 *logs
