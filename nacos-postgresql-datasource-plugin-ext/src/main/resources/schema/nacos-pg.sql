@@ -35,7 +35,7 @@ CREATE TABLE "config_info" (
   "effect" varchar(64) ,
   "type" varchar(64) ,
   "c_schema" text ,
-  "encrypted_data_key" text  NOT NULL
+  "encrypted_data_key" varchar(1024)  NOT NULL
 )
 ;
 
@@ -183,14 +183,15 @@ CREATE TABLE "config_tags_relation" (
   "group_id" varchar(128)  NOT NULL,
   "tenant_id" varchar(128) ,
   "nid" bigserial NOT NULL
-)
-;
+);
+
 COMMENT ON COLUMN "config_tags_relation"."id" IS 'id';
 COMMENT ON COLUMN "config_tags_relation"."tag_name" IS 'tag_name';
 COMMENT ON COLUMN "config_tags_relation"."tag_type" IS 'tag_type';
 COMMENT ON COLUMN "config_tags_relation"."data_id" IS 'data_id';
 COMMENT ON COLUMN "config_tags_relation"."group_id" IS 'group_id';
 COMMENT ON COLUMN "config_tags_relation"."tenant_id" IS 'tenant_id';
+COMMENT ON COLUMN "config_tags_relation"."nid" IS '自增长标识';
 COMMENT ON TABLE "config_tags_relation" IS 'config_tag_relation';
 
 -- ----------------------------
@@ -252,12 +253,16 @@ CREATE TABLE "his_config_info" (
   "src_ip" varchar(20) ,
   "op_type" char(10) ,
   "tenant_id" varchar(128) ,
-  "encrypted_data_key" text  NOT NULL
-)
-;
+  "encrypted_data_key" varchar(1024)  NOT NULL,
+  "publish_type" varchar(50)  DEFAULT 'formal'::character varying,
+  "gray_name" varchar(50),
+  "ext_info" text
+);
+COMMENT ON COLUMN "his_config_info"."nid" IS '自增标识';
 COMMENT ON COLUMN "his_config_info"."app_name" IS 'app_name';
 COMMENT ON COLUMN "his_config_info"."tenant_id" IS '租户字段';
 COMMENT ON COLUMN "his_config_info"."encrypted_data_key" IS '秘钥';
+COMMENT ON COLUMN "his_config_info"."publish_type" IS 'publish type gray or formal';
 COMMENT ON TABLE "his_config_info" IS '多租户改造';
 
 
