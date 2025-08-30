@@ -20,8 +20,6 @@ public abstract class BaseTenantInfoMapper extends AbstractDataSourceMapper impl
 {
     /**
      * <pre>构造方法</pre>
-     * 
-     * @author sinhy
      * @since 2025-04-27 10:10
      * @param databaseDialect
      */

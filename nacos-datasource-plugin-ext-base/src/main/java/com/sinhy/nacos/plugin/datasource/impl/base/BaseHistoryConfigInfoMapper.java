@@ -26,8 +26,6 @@ public abstract class BaseHistoryConfigInfoMapper extends AbstractDataSourceMapp
     
     /**
      * <pre>构造方法</pre>
-     * 
-     * @author sinhy
      * @since 2025-04-27 10:19
      * @param databaseDialect
      */

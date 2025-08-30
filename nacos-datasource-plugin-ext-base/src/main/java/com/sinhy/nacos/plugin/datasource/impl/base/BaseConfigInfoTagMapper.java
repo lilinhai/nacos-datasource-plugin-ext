@@ -26,8 +26,6 @@ public abstract class BaseConfigInfoTagMapper extends AbstractDataSourceMapper i
     
     /**
      * <pre>构造方法</pre>
-     * 
-     * @author sinhy
      * @since 2025-04-27 10:09
      * @param databaseDialect
      */

@@ -11,11 +11,14 @@
 
     <modules>
         <module>nacos-datasource-plugin-ext-base</module>
-        <!--<module>nacos-postgresql-datasource-plugin-ext</module>-->
-        <module>nacos-oracle-datasource-plugin-ext</module>
+        <module>nacos-postgresql-datasource-plugin-ext</module>
+        <!--<module>nacos-oracle-datasource-plugin-ext</module>
         <module>nacos-dm-datasource-plugin-ext</module>
-        <module>nacos-mssql-datasource-plugin-ext</module>
+        <module>nacos-mssql-datasource-plugin-ext</module>-->
     </modules>
+    
+    <name>nacos-datasource-plugin-ext</name>
+    <description>nacos-datasource-plugin-ext</description>
     
     <!---->
     <version>${revision}</version>
@@ -34,6 +37,12 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    
+    <!-- 必须配置 -->
+    <scm>
+        <connection>https://github.com/lilinhai/nacos-datasource-plugin-ext.git</connection>
+        <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
+    </scm>
     
     <properties>
         <alibaba-nacos.version>3.0.3</alibaba-nacos.version>
@@ -217,6 +226,76 @@
                         <goals>
                             <goal>clean</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>ossrh</publishingServerId>
+                    <autoPublish>false</autoPublish>
+                </configuration>
+            </plugin>
+            
+            <!--   source源码插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!--   javadoc插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                        
+                            <!-- 忽略缺少 @param 描述的警告 -->
+                            <additionalOptions>-Xdoclint:none</additionalOptions>
+                            
+                            <!-- 允许缺失 Javadoc 注释 -->
+                            <failOnError>false</failOnError>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.8</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <executable>E:\GnuPG\bin\gpg.exe</executable>
+                            
+                            <!-- 对应gpg中生成密钥对时提供的名字 -->
+                            <keyname>sinhy</keyname>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

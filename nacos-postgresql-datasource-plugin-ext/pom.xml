@@ -11,25 +11,13 @@
     
     <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
     <name>nacos-postgresql-datasource-plugin-ext</name>
+    <description>Nacos PG database storage plugin</description>
     <!--<version>${revision}-01</version>-->
     
     <properties>
         <jdbc.postgresql.version>42.7.5</jdbc.postgresql.version>
     </properties>
     <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
-    <description>Nacos PG database storage plugin</description>
-    
-    <developers>
-        <developer>
-            <name>li-lin-hai</name>
-            <email>lilinhai@sinhy.com</email>
-        </developer>
-    </developers>
-    
-    <scm>
-        <connection>https://github.com/lilinhai/nacos-datasource-plugin-ext.git</connection>
-        <url>https://github.com/lilinhai/nacos-datasource-plugin-ext</url>
-    </scm>
     
     <dependencies>
         <dependency>
@@ -43,79 +31,19 @@
             <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.8.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     
     <build>
         <!--   central发布插件    -->
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.8.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>ossrh</publishingServerId>
-                    <autoPublish>false</autoPublish>
-                </configuration>
-            </plugin>
             
-            <!--   source源码插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <!--   javadoc插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.11.3</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                        
-                            <!-- 忽略缺少 @param 描述的警告 -->
-                            <additionalOptions>-Xdoclint:none</additionalOptions>
-                            
-                            <!-- 允许缺失 Javadoc 注释 -->
-                            <failOnError>false</failOnError>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.2.8</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <executable>E:\GnuPG\bin\gpg.exe</executable>
-                            
-                            <!-- 对应gpg中生成密钥对时提供的名字 -->
-                            <keyname>lilinhai</keyname>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     
