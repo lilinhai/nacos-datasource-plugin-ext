@@ -12,7 +12,7 @@
 
 欢迎大家访问我的博客：[Nacos-3.0.0适配PostgreSQL数据库 https://linhai.blog.csdn.net/article/details/147592681](https://linhai.blog.csdn.net/article/details/147592681)
 
-当前项目是基于`Nacos3.0.2`版本的扩展插件口进行开发，同时也是基于以下项目的一个分支进行的而开：
+当前项目是基于`Nacos3.0.3`版本的扩展插件口进行开发，同时也是基于以下项目的一个分支进行的而开：
 [https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext](https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext)
 
 很感谢阿里`nacos`团队的贡献，你们一如既往的迭代`nacos`版本，给你们说声辛苦了，但是却忘记了`nacos`的其他数据源适配，比如`postgresql`。
@@ -26,14 +26,14 @@ nacos-postgresql-datasource-plugin-ext工程可打包适配Postgresql的数据�
 
 ### 2.1、插件引入
 
-方式一：将nacos的postgresql插件下载下来，将依赖手动拷贝到nacos的home目录下的plugins目录下（nacos-3.0.2/plugins）即可。
-- 以下nacos的postgresql插件版本仅支持nacos3.0.2，采用jdk17编译级：
+方式一：将nacos的postgresql插件下载下来，将依赖手动拷贝到nacos的home目录下的plugins目录下（nacos-3.0.3/plugins）即可。
+- 以下nacos的postgresql插件版本仅支持nacos3.0.3，采用jdk17编译级：
 
 ```xml
 <dependency>
     <groupId>com.sinhy</groupId>
     <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
-    <version>3.0.2</version>
+    <version>3.0.3</version>
 </dependency>
 ```
 
