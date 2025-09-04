@@ -9,6 +9,7 @@ package com.sinhy.nacos.plugin.datasource.impl.base;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.alibaba.nacos.common.utils.ArrayUtils;
 import com.alibaba.nacos.common.utils.StringUtils;
 import com.alibaba.nacos.plugin.datasource.constants.FieldConstant;
 import com.alibaba.nacos.plugin.datasource.constants.TableConstant;
@@ -59,7 +60,7 @@ public abstract class BaseConfigTagsRelationMapper extends AbstractDataSourceMap
         final String[] tagArr = (String[]) context.getWhereParameter(FieldConstant.TAG_ARR);
         List<Object> paramList = new ArrayList<>();
         StringBuilder where = new StringBuilder(" WHERE ");
-        final String sql = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content FROM config_info  a LEFT JOIN " + "config_tags_relation b ON a.id=b.id";
+        final String sql = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content FROM config_info  a LEFT JOIN config_tags_relation b ON a.id=b.id";
         
         where.append(" a.tenant_id=? ");
         paramList.add(tenant);
@@ -110,9 +111,10 @@ public abstract class BaseConfigTagsRelationMapper extends AbstractDataSourceMap
         final String appName = (String) context.getWhereParameter(FieldConstant.APP_NAME);
         final String content = (String) context.getWhereParameter(FieldConstant.CONTENT);
         final String[] tagArr = (String[]) context.getWhereParameter(FieldConstant.TAG_ARR);
+        final String[] types = (String[]) context.getWhereParameter(FieldConstant.TYPE);
         List<Object> paramList = new ArrayList<>();
         StringBuilder where = new StringBuilder(" WHERE ");
-        final String sqlFetchRows = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content " + "FROM config_info a LEFT JOIN config_tags_relation b ON a.id=b.id ";
+        final String sqlFetchRows = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content,a.type FROM config_info a LEFT JOIN config_tags_relation b ON a.id=b.id ";
         
         where.append(" a.tenant_id LIKE ? ");
         paramList.add(tenant);
@@ -136,17 +138,35 @@ public abstract class BaseConfigTagsRelationMapper extends AbstractDataSourceMap
             where.append(" AND a.content LIKE ? ");
             paramList.add(content);
         }
-        where.append(" AND b.tag_name IN (");
+        
+        where.append(" AND (");
         for (int i = 0; i < tagArr.length; i++)
         {
             if (i != 0)
             {
-                where.append(", ");
+                where.append(" OR ");
             }
-            where.append('?');
+            
+            where.append(" b.tag_name like ? ");
             paramList.add(tagArr[i]);
         }
         where.append(") ");
+        
+        if (!ArrayUtils.isEmpty(types))
+        {
+            where.append(" AND b.type IN (");
+            for (int i = 0; i < types.length; i++)
+            {
+                if (i != 0)
+                {
+                    where.append(", ");
+                }
+                where.append('?');
+                paramList.add(types[i]);
+            }
+            where.append(") ");
+        }
+        
         int startRow = context.getStartRow();
         int pageSize = context.getPageSize();
         String sql = getLimitPageSqlWithOffset(sqlFetchRows + where, startRow, pageSize);

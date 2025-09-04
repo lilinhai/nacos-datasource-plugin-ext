@@ -46,7 +46,7 @@
     
     <properties>
         <alibaba-nacos.version>3.0.3</alibaba-nacos.version>
-        <revision>${alibaba-nacos.version}</revision>
+        <revision>${alibaba-nacos.version}_patch_01</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>17</maven.compiler.source>
@@ -294,7 +294,10 @@
                             <executable>E:\GnuPG\bin\gpg.exe</executable>
                             
                             <!-- 对应gpg中生成密钥对时提供的名字 -->
+                            <!-- 当签名遇到错误提示“signing failed: No pinentry”时，需要重新生成该key即可 -->
                             <keyname>sinhy</keyname>
+                            <!--<useAgent>false</useAgent>-->
+                            <!--<passphrase>lilinhai_548</passphrase>-->
                         </configuration>
                     </execution>
                 </executions>
