@@ -10,7 +10,7 @@
 当前插件项目地址：
 [https://github.com/lilinhai/nacos-datasource-plugin-ext](https://github.com/lilinhai/nacos-datasource-plugin-ext)
 
-欢迎大家访问我的博客：[Nacos-3.0.0适配PostgreSQL数据库 https://linhai.blog.csdn.net/article/details/147592681](https://linhai.blog.csdn.net/article/details/147592681)
+欢迎大家访问我的博客：[Nacos-3.1.0适配PostgreSQL数据库 https://linhai.blog.csdn.net/article/details/147592681](https://linhai.blog.csdn.net/article/details/147592681)
 
 当前项目是基于`Nacos3.0.3`版本的扩展插件口进行开发，同时也是基于以下项目的一个分支进行的而开：
 [https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext](https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext)
@@ -33,7 +33,7 @@ nacos-postgresql-datasource-plugin-ext工程可打包适配Postgresql的数据�
 <dependency>
     <groupId>com.sinhy</groupId>
     <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
-    <version>3.0.3_patch_01</version>
+    <version>3.1.0</version>
 </dependency>
 ```
 
