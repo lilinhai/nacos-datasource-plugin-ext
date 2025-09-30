@@ -48,6 +48,11 @@ COMMENT ON COLUMN "config_info"."gmt_modified" IS '修改时间';
 COMMENT ON COLUMN "config_info"."src_user" IS 'source user';
 COMMENT ON COLUMN "config_info"."src_ip" IS 'source ip';
 COMMENT ON COLUMN "config_info"."tenant_id" IS '租户字段';
+COMMENT ON COLUMN "config_info"."c_desc" IS '配置描述';
+COMMENT ON COLUMN "config_info"."c_use" IS '配置使用';
+COMMENT ON COLUMN "config_info"."effect" IS '配置生效的描述';
+COMMENT ON COLUMN "config_info"."type" IS '配置的类型';
+COMMENT ON COLUMN "config_info"."c_schema" IS '配置的模式';
 COMMENT ON COLUMN "config_info"."encrypted_data_key" IS '秘钥';
 COMMENT ON TABLE "config_info" IS 'config_info';
 
@@ -90,86 +95,6 @@ COMMENT ON COLUMN "config_info_gray"."encrypted_data_key" IS 'encrypted_data_key
 -- Primary Key structure for table config_info_gray
 -- ----------------------------
 ALTER TABLE "config_info_gray" ADD CONSTRAINT "config_info_gray_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Table structure for config_info_beta
--- ----------------------------
-DROP TABLE IF EXISTS "config_info_beta";
-CREATE TABLE "config_info_beta" (
-  "id" bigserial NOT NULL,
-  "data_id" varchar(255)  NOT NULL,
-  "group_id" varchar(128)  NOT NULL,
-  "app_name" varchar(128) ,
-  "content" text  NOT NULL,
-  "beta_ips" varchar(1024) ,
-  "md5" varchar(32) ,
-  "gmt_create" timestamp(6) NOT NULL,
-  "gmt_modified" timestamp(6) NOT NULL,
-  "src_user" text ,
-  "src_ip" varchar(20) ,
-  "tenant_id" varchar(128) ,
-  "encrypted_data_key" text  NOT NULL
-)
-;
-COMMENT ON COLUMN "config_info_beta"."id" IS 'id';
-COMMENT ON COLUMN "config_info_beta"."data_id" IS 'data_id';
-COMMENT ON COLUMN "config_info_beta"."group_id" IS 'group_id';
-COMMENT ON COLUMN "config_info_beta"."app_name" IS 'app_name';
-COMMENT ON COLUMN "config_info_beta"."content" IS 'content';
-COMMENT ON COLUMN "config_info_beta"."beta_ips" IS 'betaIps';
-COMMENT ON COLUMN "config_info_beta"."md5" IS 'md5';
-COMMENT ON COLUMN "config_info_beta"."gmt_create" IS '创建时间';
-COMMENT ON COLUMN "config_info_beta"."gmt_modified" IS '修改时间';
-COMMENT ON COLUMN "config_info_beta"."src_user" IS 'source user';
-COMMENT ON COLUMN "config_info_beta"."src_ip" IS 'source ip';
-COMMENT ON COLUMN "config_info_beta"."tenant_id" IS '租户字段';
-COMMENT ON COLUMN "config_info_beta"."encrypted_data_key" IS '秘钥';
-COMMENT ON TABLE "config_info_beta" IS 'config_info_beta';
-
--- ----------------------------
--- Records of config_info_beta
--- ----------------------------
-BEGIN;
-COMMIT;
-
--- ----------------------------
--- Table structure for config_info_tag
--- ----------------------------
-DROP TABLE IF EXISTS "config_info_tag";
-CREATE TABLE "config_info_tag" (
-  "id" bigserial NOT NULL,
-  "data_id" varchar(255)  NOT NULL,
-  "group_id" varchar(128)  NOT NULL,
-  "tenant_id" varchar(128) ,
-  "tag_id" varchar(128)  NOT NULL,
-  "app_name" varchar(128) ,
-  "content" text  NOT NULL,
-  "md5" varchar(32) ,
-  "gmt_create" timestamp(6) NOT NULL,
-  "gmt_modified" timestamp(6) NOT NULL,
-  "src_user" text ,
-  "src_ip" varchar(20) 
-)
-;
-COMMENT ON COLUMN "config_info_tag"."id" IS 'id';
-COMMENT ON COLUMN "config_info_tag"."data_id" IS 'data_id';
-COMMENT ON COLUMN "config_info_tag"."group_id" IS 'group_id';
-COMMENT ON COLUMN "config_info_tag"."tenant_id" IS 'tenant_id';
-COMMENT ON COLUMN "config_info_tag"."tag_id" IS 'tag_id';
-COMMENT ON COLUMN "config_info_tag"."app_name" IS 'app_name';
-COMMENT ON COLUMN "config_info_tag"."content" IS 'content';
-COMMENT ON COLUMN "config_info_tag"."md5" IS 'md5';
-COMMENT ON COLUMN "config_info_tag"."gmt_create" IS '创建时间';
-COMMENT ON COLUMN "config_info_tag"."gmt_modified" IS '修改时间';
-COMMENT ON COLUMN "config_info_tag"."src_user" IS 'source user';
-COMMENT ON COLUMN "config_info_tag"."src_ip" IS 'source ip';
-COMMENT ON TABLE "config_info_tag" IS 'config_info_tag';
-
--- ----------------------------
--- Records of config_info_tag
--- ----------------------------
-BEGIN;
-COMMIT;
 
 -- ----------------------------
 -- Table structure for config_tags_relation
@@ -395,24 +320,6 @@ CREATE UNIQUE INDEX "uk_configinfo_datagrouptenant" ON "config_info" ("data_id",
 ALTER TABLE "config_info" ADD CONSTRAINT "config_info_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Indexes structure for table config_info_beta
--- ----------------------------
-CREATE UNIQUE INDEX "uk_configinfobeta_datagrouptenant" ON "config_info_beta" USING btree ("data_id","group_id","tenant_id");
-
--- ----------------------------
--- Primary Key structure for table config_info_beta
--- ----------------------------
-ALTER TABLE "config_info_beta" ADD CONSTRAINT "config_info_beta_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Indexes structure for table config_info_tag
--- ----------------------------
-CREATE UNIQUE INDEX "uk_configinfotag_datagrouptenanttag" ON "config_info_tag" USING btree ("data_id","group_id","tenant_id","tag_id");
-
--- ----------------------------
--- Primary Key structure for table config_info_tag
--- ----------------------------
-ALTER TABLE "config_info_tag" ADD CONSTRAINT "config_info_tag_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Indexes structure for table config_tags_relation
