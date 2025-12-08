@@ -45,7 +45,7 @@
     </scm>
     
     <properties>
-        <alibaba-nacos.version>3.1.0</alibaba-nacos.version>
+        <alibaba-nacos.version>3.1.1</alibaba-nacos.version>
         <revision>${alibaba-nacos.version}</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

@@ -2,6 +2,42 @@
 
 ## 一、插件概述
 
+**Nacos 3.1.1 (2025年11月26日) 最新版**
+
+本次发布重点增强了Nacos的MCP（模型配置协议）和A2A（智能体到智能体）能力，提升了系统稳定性，并完善了安全与配置管理。主要新增内容包括支持批量注册智能体端点、在导入MCP服务器时合并版本，以及通过`overrideExisting`选项增强了更新MCP服务器的灵活性。此版本还引入了对入站和出站通信的默认安全配置支持，为安全的AI智能体交互奠定了基础。
+
+本版本的具体变更如下：
+**功能**
+
+*   [#13867] 支持在更新MCP服务器时覆盖现有配置。
+*   [#13922] 新增线程池配置以允许核心线程超时。
+*   [#13946] 重构AgentEndpoint模型并新增字段以支持高级协议和查询。
+*   [#13953] 增加对默认安全配置的支持，包括为入站和出站安全方案提供选择和设置。
+*   [#13957] 支持批量注册智能体端点。
+*   [#13951] 为控制台模块添加可配置的CORS过滤器。
+**增强/重构**
+
+*   [#13822] 分离客户端执行器与登录调度执行器的职责，防止线程池耗尽。
+*   [#13863] 优化`shutdown.sh`脚本，将多个PID合并为单行，使进程终止更简洁。
+*   [#13911] 增强`importToolsFromMcp` API以支持流式协议服务器。
+*   [#13914] 升级checkStyle插件版本，以改进代码规范检查与可维护性。
+*   [#13945] 支持在导入MCP服务器规范时合并版本。
+*   [#13963] 重构List配置API以支持返回`configTags`和描述信息。
+**问题修复**
+
+*   [#13140] 修复当客户端命名空间为空时，`ConfigChangeNotifyRequest`的一致性命名空间处理问题。
+*   [#13860] 修复`ConfigMigrateService`中潜在的空指针异常风险。
+*   [#13866] 修复在控制台中无法编辑已导入的MCP服务器的问题。
+*   [#13869] 修复因缺少依赖注入导致创建'consoleHealthController' bean失败的错误。
+*   [#13877] 修复`McpRemoteHandler`中的`namespaceId`问题，该问题导致上下文传播不正确。
+*   [#13882] 修复`TpsControlManager`的同步锁问题，并添加`volatile`关键字以确保线程安全。
+*   [#13884] 修复导入过程中MCP服务器验证API的JSON解析错误。
+*   [#13902] 通过更新日志记录器初始化逻辑，修复已弃用的Log4j2包扫描警告。
+*   [#13948] 修复通过控制台界面更新智能体卡片失败的问题。
+*   [#13959] 修复在独立部署控制台/服务器时密码更新失败的问题。
+*   [#13964] 修复当`nacos.extension.ai.enabled`设置为false时，Nacos启动失败的问题。
+
+
 ### 1.1、简介
 
 从Nacos2.2版本开始，Nacos提供了数据源扩展插件，以便让需要进行其他数据库适配的用户自己编写插件来保存数据。当前项目插件目前已简单适配Postgresql。
@@ -10,7 +46,7 @@
 当前插件项目地址：
 [https://github.com/lilinhai/nacos-datasource-plugin-ext](https://github.com/lilinhai/nacos-datasource-plugin-ext)
 
-欢迎大家访问我的博客：[Nacos-3.1.0适配PostgreSQL数据库 https://linhai.blog.csdn.net/article/details/147592681](https://linhai.blog.csdn.net/article/details/147592681)
+欢迎大家访问我的博客：[Nacos-3.1.1适配PostgreSQL数据库 https://linhai.blog.csdn.net/article/details/147592681](https://linhai.blog.csdn.net/article/details/147592681)
 
 当前项目是基于`Nacos3.0.3`版本的扩展插件口进行开发，同时也是基于以下项目的一个分支进行的而开：
 [https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext](https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext)
@@ -33,7 +69,7 @@ nacos-postgresql-datasource-plugin-ext工程可打包适配Postgresql的数据�
 <dependency>
     <groupId>com.sinhy</groupId>
     <artifactId>nacos-postgresql-datasource-plugin-ext</artifactId>
-    <version>3.1.0</version>
+    <version>3.1.1</version>
 </dependency>
 ```
 
