@@ -48,6 +48,16 @@
 
 欢迎大家访问我的博客：[Nacos-3.1.1适配PostgreSQL数据库 https://linhai.blog.csdn.net/article/details/147592681](https://linhai.blog.csdn.net/article/details/147592681)
 
+我已将pg数据源插件打成了jar包，传到maven中央仓库，大家只需下载该jar，然后放入`nacos`的`home`目录下的`plugins`插件目录，再配置`pg`数据源信息，即可使用！
+
+**PG适配Nacos3.1.1插件下载**
+
+**1. 直接下载该jar**：[https://repo1.maven.org/maven2/com/sinhy/nacos-postgresql-datasource-plugin-ext/3.1.1/nacos-postgresql-datasource-plugin-ext-3.1.1.jar](https://repo1.maven.org/maven2/com/sinhy/nacos-postgresql-datasource-plugin-ext/3.1.1/nacos-postgresql-datasource-plugin-ext-3.1.1.jar)
+
+**2. 从以下连接下载**
+[https://github.com/lilinhai/nacos-datasource-plugin-ext/releases/download/3.1.1/nacos-postgresql-datasource-plugin-ext-3.1.1.jar](https://github.com/lilinhai/nacos-datasource-plugin-ext/releases/download/3.1.1/nacos-postgresql-datasource-plugin-ext-3.1.1.jar)
+
+
 当前项目是基于`Nacos3.0.3`版本的扩展插件口进行开发，同时也是基于以下项目的一个分支进行的而开：
 [https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext](https://github.com/nacos-group/nacos-plugin/tree/develop/nacos-datasource-plugin-ext)
 
